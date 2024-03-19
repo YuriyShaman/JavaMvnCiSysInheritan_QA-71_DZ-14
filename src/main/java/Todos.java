@@ -5,6 +5,7 @@ public class Todos {
     /**
      * Вспомогательный метод для имитации добавления
      * элемента в массив
+     *
      * @param current Массив, в который мы хотим добавить элемент
      * @param task    Элемент, который мы хотим добавить
      * @return Возвращает новый массив, который выглядит
@@ -18,32 +19,34 @@ public class Todos {
         }
         tmp[tmp.length - 1] = task;
         return tmp; // Текущее число задач в их массиве
-
-
-        public void add(Task task) { // <- вот здесь в параметре может лежать объект
-                                    // и вида SimpleTask, и вида Epic, и вида Meeting
-
-            tasks = addToArray(tasks, task); // Новая задача вводится в массив задач
-                                            // и ей присваивается имя  tasks
-        }
-        public Task[] findAll() {
-            return tasks;
-        }
-       /*
-         * Метод поиска задач, которые подходят под поисковый запрос
-         * @param query Поисковый запрос
-         * @return Массив из подошедших задач
-         */
-        public Task[] search (String query){
-            Task[] result = new Task[0]; // массив для ответа
-            for (Task task : tasks) { // перебираем все задачи
-                if (task.matches(query)) { // если задача подходит под запрос
-                    result = addToArray(result, task); // добавляем её в массив ответа
-                }
-            }
-            return result;
-        }
     }
 
+    public void add(Task task) { // <- вот здесь в параметре может лежать объект
+        // и вида SimpleTask, и вида Epic, и вида Meeting
+
+        tasks = addToArray(tasks, task); // Новая задача вводится в массив задач
+        // и ей присваивается имя  tasks
+    }
+
+    public Task[] findAll() {
+        return tasks;
+    }
+
+    /*
+     * Метод поиска задач, которые подходят под поисковый запрос
+     * @param query Поисковый запрос
+     * @return Массив из подошедших задач
+     */
+    public Task[] search(String query) {
+        Task[] result = new Task[0]; // массив для ответа
+        for (Task task : tasks) { // перебираем все задачи
+            if (task.matches(query)) { // если задача подходит под запрос
+                result = addToArray(result, task); // добавляем её в массив ответа
+            }
+        }
+        return result;
+    }
 }
+
+
 

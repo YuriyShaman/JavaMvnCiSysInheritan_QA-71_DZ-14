@@ -1,6 +1,6 @@
 public class Meeting extends Task {
 
-  private String topic;
+    private String topic;
     private String project;
     private String start; // protected
 
@@ -12,14 +12,17 @@ public class Meeting extends Task {
     }
 
     public int getId() {   //
-        return super.getId();
+        return super.getid();
     }
+
     public String getTopic() {
         return topic;
     }
-    public String getProject () {
+
+    public String getProject() {
         return project;
     }
+
     public String getStart() {
         return start;
     }
@@ -38,33 +41,4 @@ public class Meeting extends Task {
         }
         return false;
     }
-//    ************************************************************
-//    @Override
-//    public boolean matches(String query) {
-//        if (topic.contains(query)) {
-//            return true;
-//        }
-//        if (project.contains(query)) {
-//            return true;
-//        }
-//        return false;
-//    }
 }
-
-// ******************************************
-//    @Override
-//    public boolean matches(String query) {
-//        if (title.contains(query)) {
-//            return true;
-//        }
-//            return false;
-//    }
-//    public boolean matches(String query) {
-//        return false;
-//    }
-// *******************************************
-
-// *******************************************
-//    public boolean matches(String query) {
-//        return false;
-//    }
