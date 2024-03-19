@@ -1,22 +1,21 @@
 public class Epic extends Task {
 
-    protected String title;
+    protected String subtasks;
 
-
-    public Epic(int id, String subtasks) {
-        super(id); // вызов родительского конструктора
-        this.title = title; // заполнение своих полей
+    public Epic(int id, String subtasks) {  // Создан конструктор с 2-мя параметрами (int id, String subtasks)
+        super(id); // вызов родительского конструктора, взять в нем id
+        this.subtasks = subtasks; // заполнение массива subtasks (задачи)
     }
 
     public String getEpic() {
-        return title;
+        return subtasks;
     }
 
-//    @Override
-//    public boolean matches(String query) {
-//        if (subtasks.contains(query)) {
-//            return true;
-//        }
-//        return false;
-//    }
+    @Override
+    public boolean matches(String query) {
+        if (subtasks.contains(query)) {
+            return true;
+        }
+        return false;
+    }
 }

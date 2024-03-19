@@ -19,7 +19,6 @@ public class TodosTest {
         );
 
         Todos todos = new Todos();
-
         todos.add(simpleTask);
         todos.add(epic);
         todos.add(meeting);

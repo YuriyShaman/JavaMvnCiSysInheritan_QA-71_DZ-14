@@ -1,12 +1,12 @@
 import java.util.Objects;
 
-    public class Task {
-        protected int id;
+    public class Task {  // Создаем родительский класс Task
+        protected int id;  // даем доступ к параметру id всем дочерним классам
 
-        public Task(int id) {
-            this.id = id;
+        public Task(int id) { // Создаем конструктор с параметром id
+            this.id = id;  // Заполняем поле параметра id
         }
-        public int getId() {
+        public int getId() {  // Геттер для id
             return id;
         }
 
@@ -32,7 +32,8 @@ import java.util.Objects;
      * @param query Поисковый запрос
      * @return Ответ на вопрос, подходит ли эта задача под поисковый запрос
      */
-    public boolean matches(String query) {
-        return false;
+    public boolean matches(String query) { // Создан новый метод matches с параметром
+                                            // (последний запрос (String query)
+        return false;   // Если такого запроса нет - выход
     }
 }

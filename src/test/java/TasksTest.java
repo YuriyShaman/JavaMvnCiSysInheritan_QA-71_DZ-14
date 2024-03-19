@@ -7,21 +7,22 @@ import java.util.Objects;
 public class TasksTest {
 
     @Test
-          public void Find_title_Test() {
-          Task task = new Task(5);
-           SimpleTask.matches();                  // Идем в класс task, берем результат метода matches
-//        Task[] actual = simpleTask.getTitle();        // Прикрутить геттер
-//        Task[] expected = simpleTask.getTitle();      // ????
-//          Assertions.assertArrayEquals(expected, actual);
-        }
+    public void findTitleTest() { // обратите вниманеи,что методы называют с маленькой буквы,
+                                    // а каждое следующее слово с большой, все пишется в одно слово
+        SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
+                                    // cоздаем объект simpleTask и передаем в него параметры
+        boolean actual = simpleTask.matches("Написать"); // обращаемся к методу matches и передаем туда запрос
+        boolean expected = false; // указываем ожидаемый результат. т.к. в "Позвоните родителям"
+                                    // нет "Написать", то ожидаем мы false
+        Assertions.assertEquals(expected, actual); // сравниваем ожидаемый и фактический результаты
+    }
 
 
+    @Test
+    public void Epic() {
+        Epic epic = new Epic(55, "Молоко");   // cоздаем Epic и передаем в него параметры
+        boolean actual = epic.matches("Мол"); // обращаемся к методу matches и передаем туда запрос
+        boolean expected = false; //  ожидаем false
+        Assertions.assertEquals(expected, actual); // сравниваем ожидаемый и фактический результаты
+    }
 }
-
-//    @Test
-//    public void Find_title_Test() {
-//        Task tasks = new Task(5);
-//    String[] actual = manager.findAll();
-//    String[] expected = {};
-//           Assertions.assertArrayEquals(expected, actual);
-//                   }
