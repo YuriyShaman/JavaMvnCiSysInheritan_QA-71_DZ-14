@@ -10,7 +10,7 @@ public class Todos {
      * @param task    Элемент, который мы хотим добавить
      * @return Возвращает новый массив, который выглядит
      * как тот, что мы передали,
-     * но с добавлением нового элемента в конец
+     * но с добавлением нового элемента в КОНЕЦ
      */
     private Task[] addToArray(Task[] current, Task task) {
         Task[] tmp = new Task[current.length + 1];

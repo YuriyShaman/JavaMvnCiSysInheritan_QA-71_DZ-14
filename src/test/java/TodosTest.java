@@ -8,7 +8,7 @@ public class TodosTest {
 
         SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
 
-        String[] subtasks = {"Молоко", "Яйца", "Хлеб"};
+        String[] subtasks = {"Хлеб","Молоко", "Яйца" };
         Epic epic = new Epic(55, "Молоко");
 
         Meeting meeting = new Meeting(
@@ -17,7 +17,6 @@ public class TodosTest {
                 "Приложение НетоБанка",
                 "Во вторник после обеда"
         );
-
         Todos todos = new Todos();
         todos.add(simpleTask);
         todos.add(epic);

@@ -6,11 +6,9 @@ public class Epic extends Task {
         super(id); // вызов родительского конструктора, взять в нем id
         this.subtasks = subtasks; // заполнение массива subtasks (задачи)
     }
-
-    public String getEpic() {
+    public String getSubtasks() {
         return subtasks;
     }
-
     @Override
     public boolean matches(String query) {
         if (subtasks.contains(query)) {

@@ -11,7 +11,7 @@ public class Meeting extends Task {
         this.start = start; //  заполнение массива start (время старта (текстом))
     }
 
-    public int getId() {   //
+    public int getid() {
         return super.getid();
     }
 
@@ -27,16 +27,12 @@ public class Meeting extends Task {
         return start;
     }
 
-
     @Override
     public boolean matches(String query) {
         if (topic.contains(query)) {
             return true;
         }
         if (project.contains(query)) {
-            return true;
-        }
-        if (start.contains(query)) {
             return true;
         }
         return false;
