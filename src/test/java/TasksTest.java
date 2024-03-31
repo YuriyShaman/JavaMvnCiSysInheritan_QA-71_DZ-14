@@ -9,38 +9,52 @@ public class TasksTest {
     @Test       // Тест "Такого  запроса нет"
     public void simpleTaskTestFalse() {  // обратите вниманеи,что методы называют с маленькой буквы,
         // а каждое следующее слово с большой, все пишется в одно слово
-        SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
+        SimpleTask simpleTask = new SimpleTask(5, "Позвоните родителям");
         // cоздаем объект simpleTask и передаем в него параметры
-        boolean actual = simpleTask.matches("Написать родителям"); //Oбращаемся к методу matches и передаем туда запрос
+        boolean actual = simpleTask.matches("Напомните родителям"); //Oбращаемся к методу matches и передаем туда запрос
         boolean expected = false;   // указываем ожидаемый результат. т.к. в "Позвоните родителям"
-        // нет "Напомнить", то ожидаем мы false
+        // нет "Напомните", то ожидаем мы false
         Assertions.assertEquals(expected, actual);
     }
 
     @Test       // Тест "Такой  запрос есть"
     public void simpleTaskTestTrue() {  // обратите вниманеи,что методы называют с маленькой буквы,
         // а каждое следующее слово с большой, все пишется в одно слово
-        SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
+        SimpleTask simpleTask = new SimpleTask(5, "Позвоните родителям");
         // cоздаем объект simpleTask и передаем в него параметры
-        boolean actual = simpleTask.matches("Позвонить родителям"); //Oбращаемся к методу matches и передаем туда запрос
+        boolean actual = simpleTask.matches("Позвоните родителям"); //Oбращаемся к методу matches и передаем туда запрос
         boolean expected = true;   // указываем ожидаемый результат. т.к. в "Позвоните родителям"
         // нет "Напомнить", то ожидаем мы false
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test       // Тест "Такой  запрос есть"
+    public void simpleTaskTestTrueId() {  // обратите вниманеи,что методы называют с маленькой буквы,
+        // а каждое следующее слово с большой, все пишется в одно слово
+        SimpleTask simpleTask = new SimpleTask(5, "Позвоните родителям");
+        // cоздаем объект simpleTask и передаем в него параметры
+        //boolean actual = simpleTask.matches("Позвоните родителям"); //Oбращаемся к методу matches и передаем туда запрос
+
+       Task[] actual = Task.getid(6);
+
+        boolean expected = true;   // указываем ожидаемый результат. т.к. в "Позвоните родителям"
+        // есть "Позвоните", то ожидаем мы true
         Assertions.assertEquals(expected, actual);
     }
 
     //@Test
     public void simpleTaskTest11() { // обратите вниманеи,что методы называют с маленькой буквы,
         // а каждое следующее слово с большой, все пишется в одно слово
-        SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
+        SimpleTask simpleTask = new SimpleTask(5, "Позвоните родителям");
         // cоздаем объект simpleTask и передаем в него параметры
 //        radio.next();
 
-        simpleTask.matches("Позвонить родителям");
+        simpleTask.matches("Позвоните родителям");
 
-//                boolean actual = simpleTask.getTitle("Позвонить родителям"); //("Напомнить родителям");
+//                boolean actual = simpleTask.getTitle("Позвонить родителям"); //("Напомните родителям");
         // Oбращаемся к методу matches и передаем туда запрос
         boolean expected = false;   // указываем ожидаемый результат. т.к. в "Позвоните родителям"
-        // нет "Напомнить", то ожидаем мы false
+        // нет "Напомните", то ожидаем мы false
         //       Assertions.assertEquals(expected, actual);
     }
 }

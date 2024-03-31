@@ -2,7 +2,8 @@ public class SimpleTask extends Task { // Создан дочерний клас
 
     protected String title; // Защищенный текстовый параметр title
 
-    public SimpleTask(int id, String title) {  // Создан конструктор с 2-мя параметрами
+
+    public SimpleTask(int id, String title) {  // Создан конструктор с 2-мя параметрами id и String title
         super(id);          // вызов параметра id из родительского конструктора
         this.title = title; // заполнение полей названия новой задачи
     }

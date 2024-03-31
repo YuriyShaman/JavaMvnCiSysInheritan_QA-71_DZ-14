@@ -13,13 +13,13 @@ import java.util.Objects;
         // Ниже находятся вспомогательные методы для корректной работы equals
         // Переопределять их в наследниках не нужно
 
-//        @Override
-//        public boolean equals(Object o) {
-//            if (this == o) return true;
-//            if (o == null || getClass() != o.getClass()) return false;
-//            Task task = (Task) o;
-//            return id == task.id;
-//        }
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Task task = (Task) o;
+            return id == task.id;
+        }
 
 //        @Override
 //        public int hashCode() {
@@ -33,7 +33,7 @@ import java.util.Objects;
      * @return Ответ на вопрос, подходит ли эта задача под поисковый запрос
      */
     public boolean matches(String query) { // Создан новый метод matches с параметром
-                                            // (последний запрос (String query)
+                                            // String query (последний запрос)
         return false;   // Если такого запроса нет - выход
     }
 }
