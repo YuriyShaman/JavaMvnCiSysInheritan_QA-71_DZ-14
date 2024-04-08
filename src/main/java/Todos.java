@@ -22,26 +22,25 @@ public class Todos {
     }
 
     public void add(Task task) { // <- вот здесь в параметре может лежать объект
-        // и вида SimpleTask, и вида Epic, и вида Meeting
+        // вида SimpleTask или вида Epic, или вида Meeting
 
-        tasks = addToArray(tasks, task); // Новая задача вводится в массив задач
-        // и ей присваивается имя  tasks
+        tasks = addToArray(tasks, task); // *** Новая задача вводится в массив задач
+        //                                      и ей присваивается имя  tasks
     }
 
     public Task[] findAll() {
         return tasks;
     }
-
     /*
      * Метод поиска задач, которые подходят под поисковый запрос
      * @param query Поисковый запрос
      * @return Массив из подошедших задач
      */
-    public Task[] search(String query) {
-        Task[] result = new Task[0]; // массив для ответа
-        for (Task task : tasks) { // перебираем все задачи
-            if (task.matches(query)) { // если задача подходит под запрос
-                result = addToArray(result, task); // добавляем её в массив ответа
+    public Task[] search(String query) {                 // В Task ищем текст запроса query
+        Task[] result = new Task[0];                     // создаум массив  ответа
+        for (Task task : tasks) {                        // перебираем все задачи
+            if (task.matches(query)) {                   // если задача подходит под выбранный запрос
+                result = addToArray(result, task);       // добавляем её в массив ответа
             }
         }
         return result;
