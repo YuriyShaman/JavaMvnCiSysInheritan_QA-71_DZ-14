@@ -6,11 +6,12 @@ public class SimpleTask extends Task { // Создан дочерний клас
         super(id);          // вызов параметра id из родительского конструктора в Task
         this.title = title; // заполнение поля названия новой задачи
     }
+
     public String getTitle() { // Ищем (проверяем) название (текст) задачи
         return title;
     } // SimpleTask и String getTitle должны быть public
 
-       @Override
+    @Override
     public boolean matches(String query) {  // Создаем метод matches c текстом  qery (текущий запрос)
         if (title.contains(query)) {       // Если такой текст запроса уже имеется в массиве,
             return true;                    // выводим подтверждение *** "Да" ***

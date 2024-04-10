@@ -3,24 +3,23 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 
-
-    public class TodosTest {
+public class TodosTest {
 
 
     @Test
     public void shouldAddThreeTasksOfDifferentType() {
 
-        SimpleTask simpleTask = new SimpleTask(5,"Купиите родителям"); // "Купите родителям" "Позвоните родителям"
+        SimpleTask simpleTask = new SimpleTask(5, "Купиите родителям"); // "Купите родителям" "Позвоните родителям"
 
-        String[] subtasks = {"Хлеб","Молоко", "Яйца"};//  "Чай"
-        Epic epic = new Epic(55, "Хлеб" );
+        String[] subtasks = {"Хлеб", "Молоко", "Яйца"};//  "Чай"
+        Epic epic = new Epic(55, "Хлеб");
 
         Meeting meeting = new Meeting(
                 555,
                 "Выкатка 10й версии приложения",
                 "Приложение 7 НетоБанка",
                 "Во вторник 65 после обеда"
-       );
+        );
         Todos todos = new Todos();
         todos.add(simpleTask);
         todos.add(epic);
@@ -33,14 +32,14 @@ import org.junit.jupiter.api.Test;
 
 
     @Test
-    public void shouldAddThreeTasksOfDifferentType1() {
+    public void fewTasksFound() {
 
-       SimpleTask simpleTask = new SimpleTask(5, "Купите Хлеб");  // "Купите Молоко"
+        SimpleTask simpleTask = new SimpleTask(5, "Купите Хлеб");  // "Купите Молоко"
 
-       String[] subtasks = {"Хлеб","Молоко", "Яйца" };
+        String[] subtasks = {"Хлеб", "Молоко", "Яйца"};
         Epic epic = new Epic(55, "Хлеб");
 
-       Meeting meeting = new Meeting(
+        Meeting meeting = new Meeting(
                 555,
                 "Выкатка 3й версии приложения",
                 "Приложение НетоБанка",
@@ -51,17 +50,17 @@ import org.junit.jupiter.api.Test;
         todos.add(epic);
         todos.add(meeting);
 
-        Task[] expected = {simpleTask,epic};
+        Task[] expected = {simpleTask, epic};
         Task[] actual = todos.search("Хлеб");
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void shouldAddThreeTasksOfDifferentType2() {
+    public void oneTasksFound() {
 
         SimpleTask simpleTask = new SimpleTask(5, "Купите Хлеб");  // "Купите Молоко"
 
-        String[] subtasks = {"Хлеб","Молоко", "Яйца" };
+        String[] subtasks = {"Хлеб", "Молоко", "Яйца"};
         Epic epic = new Epic(55, "Хлеб");
 
         Meeting meeting = new Meeting(
@@ -81,11 +80,11 @@ import org.junit.jupiter.api.Test;
     }
 
     @Test
-    public void shouldAddThreeTasksOfDifferentType3() {
+    public void notTasksFound() {
 
         SimpleTask simpleTask = new SimpleTask(5, "Купите Хлеб");  // "Купите Молоко"
 
-        String[] subtasks = {"Хлеб","Молоко", "Яйца" };
+        String[] subtasks = {"Хлеб", "Молоко", "Яйца"};
         Epic epic = new Epic(55, "Хлеб");
 
         Meeting meeting = new Meeting(
@@ -103,5 +102,4 @@ import org.junit.jupiter.api.Test;
         Task[] actual = todos.search("Ничего");
         Assertions.assertArrayEquals(expected, actual);
     }
-
 }

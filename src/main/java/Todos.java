@@ -31,6 +31,7 @@ public class Todos {
     public Task[] findAll() {
         return tasks;
     }
+
     /*
      * Метод поиска задач, которые подходят под поисковый запрос
      * @param query Поисковый запрос

@@ -10,12 +10,15 @@ public class Meeting extends Task { // Создан класс Meeting, насл
         this.project = project;  // заполнение массива project (название проекта)
         this.start = start; //  заполнение массива start (время старта (текстом))
     }
+
     public String getTopic() {
         return topic;
     }
+
     public String getProject() {
         return project;
     }
+
     public String getStart() {
         return start;
     }
