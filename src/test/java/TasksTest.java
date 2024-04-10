@@ -7,98 +7,115 @@ import java.util.Objects;
 public class TasksTest {
 
     @Test       // Тест "Такого  запроса нет"
-    public void simpleTaskTestFalse() {  // методы называют с маленькой буквы,
+    public void simpleTaskFalse() {  // методы называют с маленькой буквы,
         // а каждое следующее слово с большой, все пишется в одно слово
-        SimpleTask simpleTask = new SimpleTask(5, "Позвоните родителям");
+        SimpleTask simpleTask = new SimpleTask(5, "Купите родителям");
         // cоздаем объект simpleTask и передаем в него параметры
-        boolean actual = simpleTask.matches("Купите родителям"); //Oбращаемся к методу matches и передаем туда запрос
-        boolean expected = false;   // указываем ожидаемый результат. т.к. в "Позвоните родителям"
-        // нет "Купите", то ожидаем мы false
+        boolean actual = simpleTask.matches("Позвоните"); //Oбращаемся к методу matches и передаем туда запрос
+        boolean expected = false;   // ожидаем false. т.к. в "Позвоните родителям" нет "Купите", то ожидаем мы false
         Assertions.assertEquals(expected, actual);
     }
 
     @Test       // Тест "Такой  запрос есть"
     public void simpleTaskTestTrue() {
-        SimpleTask simpleTask = new SimpleTask(5, "Позвоните родителям");
-        boolean actual = simpleTask.matches("Позвоните"); //Oбращаемся к методу matches и передаем туда запрос
-        boolean expected = true;   // в "Позвоните родителям" есть "Позвоните" --  ожидаем  true
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test       // Тест "Такой  запрос есть"
-    public void simpleTaskTestFalseNew() {
-        SimpleTask simpleTask = new SimpleTask(7, "Новая задачка");
-        boolean actual = simpleTask.matches("Найти"); //Oбращаемся к методу matches и передаем туда запрос
-        boolean expected = false;   // в "Позвоните родителям" нет "Напомнить", то ожидаем мы false
-        Assertions.assertEquals(expected, actual);
+        SimpleTask simpleTask = new SimpleTask(5, "Купите родителям");
+        boolean actual = simpleTask.matches("Купите"); //Oбращаемся к методу matches и передаем туда запрос
+        Assertions.assertTrue(actual); //  Сравниваем полученный и ожидаемый результаты, используя другой оператор
     }
 
     @Test
     public void EpicFalse() {
         Epic epic = new Epic(55, "Молоко");   // cоздаем Epic и передаем в него параметры
-        boolean actual = epic.matches("Хлеб"); // обращаемся к методу matches и передаем туда этот запрос
-        boolean expected = false; //  ожидаем false
+        boolean actual = epic.matches("Чай"); // обращаемся к методу matches и передаем туда этот запрос
+        boolean expected = false;   // ожидаем false. т.к. в "Позвоните родителям" нет "Купите", то ожидаем мы false
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void EpicTrue() {
-        Epic epic = new Epic(55, "Молоко");   // cоздаем Epic и передаем в него параметры
-        boolean actual = epic.matches("Молоко"); // обращаемся к методу matches и передаем туда этот запрос
-        boolean expected = true; //  ожидаем false
+        Epic epic = new Epic(55, "Молоко");   // Передаем в Epic запрос на новую задачу
+        boolean actual = epic.matches("Молоко"); // Методом matches передаем наличие "Молоко" в Epic
+        Assertions.assertTrue(actual); //  Сравниваем полученный и ожидаемый результаты, используя другой оператор
+    }
+
+    @Test
+    public void MeetingTopicFalse() {
+        Meeting meeting = new Meeting(555,
+                "Выкатка 3й версии приложения",
+                "Приложение НетоБанка",
+                "Во вторник после обеда"
+        );
+        boolean actual = meeting.matches("4й версии приложения");
+        boolean expected = false; //  ожидаем = false
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void MeetingTrueTopic() {
+    public void MeetingTopicTrue() {
        Meeting meeting = new Meeting(555,
                 "Выкатка 3й версии приложения",
                 "Приложение НетоБанка",
                 "Во вторник после обеда"
         );
-        boolean actual = meeting.matches("Выкатка 3й версии приложения");
-        boolean expected = true; //  ожидаем = true
-
-        Assertions.assertEquals(expected, actual);
+        boolean actual = meeting.matches("Выкатка 3й версии");
+        Assertions.assertTrue(actual); //  Сравниваем полученный и ожидаемый результаты, используя другой оператор
     }
 
     @Test
-    public void MeetingFalseTopic() {
-        Meeting meeting = new Meeting(555,
-                "Выкатка 5й версии приложения",
-                "Приложение НетоБанка",
-                "Во вторник после обеда"
-        );
-        boolean actual = meeting.matches("Выкатка 3й версии приложения");
-        boolean expected = false; //  ожидаем = false
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void MeetingTrueProject() {
+    public void MeetingProjectFalse() {
         Meeting meeting = new Meeting(555,
                 "Выкатка 3й версии приложения",
                 "Приложение НетоБанка",
                 "Во вторник после обеда"
         );
-        boolean actual = meeting.matches("Приложение НетоБанка");
-        boolean expected = true; //  ожидаем true
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void MeetingFalseProject() {
-        Meeting meeting = new Meeting(555,
-                "Выкатка 3й версии приложения",
-                "Приложение НетоБанка",
-                "Во вторник после обеда"
-        );
-        boolean actual = meeting.matches("Приложение Банка");
+        boolean actual = meeting.matches("СберБанка");
         boolean expected = false; //  ожидаем false
-
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void MeetingProjectTrue() {
+        Meeting meeting = new Meeting(555,
+                "Выкатка 3й версии приложения",
+                "Приложение НетоБанка",
+                "Во вторник после обеда"
+        );
+        boolean actual = meeting.matches("НетоБанка");
+        Assertions.assertTrue(actual); //  Сравниваем полученный и ожидаемый результаты, используя другой оператор
+    }
+
+    @Test
+    public void MeetingStartFalse() {
+        Meeting meeting = new Meeting(555,
+                "Выкатка 3й версии приложения",
+                "Приложение НетоБанка",
+                "Во вторник после обеда"
+        );
+        boolean actual = meeting.matches("Завтра");
+        boolean expected = false; //  ожидаем false
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void MeetingStartTrue() {
+        Meeting meeting = new Meeting(558,
+                "Выкатка 3й версии приложения",
+                "Приложение НетоБанка",
+                "Во вторник после обеда"
+        );
+        boolean actual = meeting.matches("Во вторник после обеда");
+        Assertions.assertTrue(actual); //  Сравниваем полученный и ожидаемый результаты, используя другой оператор
+    }
+
+    @Test
+    public void MeetingStartFalseAll() {
+        Meeting meeting = new Meeting(555,
+                "Выкатка 3й версии приложения",
+                "Приложение НетоБанка",
+                "Во вторник после обеда"
+        );
+        boolean actual = meeting.matches("Ничего нет");
+        boolean expected = false; //  ожидаем false
+        Assertions.assertEquals(expected, actual);
+    }
 }

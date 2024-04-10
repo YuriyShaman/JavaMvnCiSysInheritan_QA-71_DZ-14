@@ -1,8 +1,8 @@
-public class Meeting extends Task {
+public class Meeting extends Task { // Создан класс Meeting, наследник Task
 
-    protected String topic;
-    protected String project;
-    protected String start; // protected  private
+    private String topic; // Описание переменных
+    private String project;
+    private String start;
 
     public Meeting(int id, String topic, String project, String start) {
         super(id);          //  вызов рк Task, взять в нем id
@@ -10,7 +10,6 @@ public class Meeting extends Task {
         this.project = project;  // заполнение массива project (название проекта)
         this.start = start; //  заполнение массива start (время старта (текстом))
     }
-
     public String getTopic() {
         return topic;
     }
@@ -29,6 +28,10 @@ public class Meeting extends Task {
         if (project.contains(query)) {
             return true;
         }
+        if (start.contains(query)) {
+            return true;
+        }
+
         return false;
     }
 
